@@ -1,0 +1,362 @@
+@charset "UTF-8";
+
+body
+{
+    background-color: rgb(207, 207, 207);
+}
+
+
+
+.botaoop1
+{
+    margin-top: 40px;
+    margin-left: 10px;
+   
+}
+
+
+
+h1
+{
+    text-align: center;
+    padding-top: 30px;
+}
+
+h3,p
+{
+    padding-top: 30px;
+    margin-left: 30px;
+}
+
+/*primeiro modelo de carrossel*/
+/*tamanho da imagem vai influenciar na construção e efeito do carrossel*/
+.galeria2
+{
+    width: 640px;
+    height: 360px;
+    overflow: hidden;/*deixa apaenas uma imagem aparecendo*/
+    margin-left: 300px;
+}
+
+/*criando as configurações para gerar o efeito da animacao carrossel*/
+.galeria2 .fotos2
+{
+    width: 500%;/*pq são cinco imagens e isso equivale ao width da galeria , ou seja cada uma foto corresponde a 100%*/
+    animation-name: animacao1;
+    animation-duration: 20s;/*tempo da animacao*/
+    animation-iteration-count: infinite; /*contagem das animações*/
+}
+
+/*Criando a animacao*/
+
+@keyframes animacao1 {
+    0% { margin-left: 0; }
+    20% { margin-left: 0; }
+    25% { margin-left: -100%; }
+    45% { margin-left: -100%; }
+    50% { margin-left: -200%; }
+    70% { margin-left: -200%; }
+    75% { margin-left: -300%; }
+    95% { margin-left: -300%; }
+    100% { margin-left: -400%; }
+}
+
+.galeria2 .fotos2 img {
+    width: 19.9%;
+}
+/* Fim do Primeiro Modelo */
+
+/* Começo do Segundo Modelo */
+
+*{margin: 0; padding: 0;}
+
+.slider {
+    display: block;
+    height: 293px;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+}
+
+.slider li {
+    list-style: none;
+    position: absolute;
+}
+
+.slider img {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+    opacity: 0;
+   visibility: hidden;
+   
+}
+
+.slider input {
+    display: none;
+}
+.slider label {
+    background-color: blueviolet;
+    bottom: 10px;
+    cursor: pointer;
+    display: block;
+    height: 10px;
+    position: absolute;
+    width: 10px;
+    z-index: 10;
+   
+}
+
+.slider li:nth-child(1) label {
+    left: 10px;
+}
+
+.slider li:nth-child(2) label {
+    left: 40px;
+}
+
+.slider li:nth-child(3) label {
+    left: 70px;
+}
+
+.slider li input:checked ~ img {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+/*fim do segundo modelo*/
+
+/*Terceiro Modelo de carrossel*/
+
+/*confuguracoes do botao seta do carrossel*/
+.button-arrow
+{
+    width: 50px;
+    height: 50px;
+    background-color: #7940af;
+    box-shadow: 5px 5px 0px #000000;
+    cursor: pointer;
+}
+
+/*esconder o texto*/
+.button-arrow .content
+{
+    display: none;
+}
+/*esconder o texto*/
+
+/*desenhando a setas*/
+.button-arrow::before
+{
+    content: "";
+    display: block;
+    box-sizing:border-box;/*FAZ COM QUE A BORDA OCUPE TODO O TAMANHO DO ELEMENTO,PARTE INTERNA*/
+    width: 15px;
+    height: 15px;
+    border:15px solid transparent; /*deixa todas as outras bordas transparentes , nao aparecem*/
+    border-left: 28px solid white ;/*mandou a seta para adireita*/
+    transform: translateX(5px); /*movimenta a seta no eixo x apenas*/
+ }
+
+ .button-arrow.-left::before
+ {
+    transform: rotate(180deg) translateX(12px);
+ }
+
+
+ /*configuracoes dos cards do carrossel*/
+ .node-card
+ {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+ }
+
+
+.node-card::before
+{
+    content: "";
+    box-sizing: border-box;
+    height: 0px;
+    width: 40px;
+    border: 4px dashed black;
+    transform: rotate(90deg) translateX(140%);
+    bottom: 140px;
+}
+
+ .node-card .title
+ {
+    font-family: 'Press Start 2P', sans-serif; 
+    font-size: 25px;
+     font-weight: 400;
+     color: black;
+     margin-bottom: 50px;
+
+ }
+
+ .node-card .logon
+ {
+    display: flex;
+    align-items: center;
+    height: 140px;
+    border: 5px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #ceb02a;
+ }
+
+
+ /*variacao do logo caelum*/
+
+.node-card.-clean .logon
+{
+    padding: 0px;
+}
+
+/*Mudando as cores de fundo de dois cards*/
+.node-card.-first .logon
+{
+    background-color: blueviolet;
+}
+/*configuracoes do carrossel*/
+.main-carousel
+{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+   
+}
+.main-carousel::after
+{
+    content: "";
+    position: absolute;
+    
+    left: 40px;
+    top: 38px;
+    display: block;
+    height: 5px;
+    width: calc(100% - 80px);
+    background-color: #000;
+}
+
+.main-carousel::before
+{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 0px;
+    top: 38px;
+    border: 2px dashed #000;
+    display: block;
+    width: 100%;
+ 
+}
+
+.main-carousel .button-arrow
+{
+    position: absolute;
+     bottom: 70px;
+     transform: translateY(50%);
+}
+
+.main-carousel .button-arrow.-left
+{
+    left: 15px;
+}
+.main-carousel .button-arrow.-right
+{
+    right: 15px;
+}
+
+.main-carousel .items
+{    
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+.main-carousel .elements
+{
+    display: flex;
+    justify-content: space-between;
+    transition: transform 100ms ease-in-out ;
+}
+
+/*ultimo modelo de carrossel*/
+
+#miniaturas
+{
+    width:225px;
+    height: 600px;
+    float: left;
+    overflow: auto;
+    margin-left: 50px;
+}
+
+#imagemgaleria
+{
+    width: 900px;
+    height: 600px;
+    float: right;
+    /*background-color: aqua;*/
+}
+
+#imagemgaleria iframe
+{
+    width: 800px; 
+    height: 600px;
+    margin-left: -90px;
+    border: 0px;
+    
+}
+
+/*teste carrossel*/
+
+#modcinco
+{
+    max-width:800px;
+    position:relative
+}
+
+
+
+.btn-floating
+{
+    position:absolute;
+    top:45%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+     overflow: hidden;
+    z-index: 1;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.btn-floating.esquerda
+{
+    left: 110px;
+}
+
+.btn-floating.direita
+{
+    left: 650px;
+}
+
+.mySlides
+{
+    margin-left: 100px;
+}
+

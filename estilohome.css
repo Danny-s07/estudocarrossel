@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+
+body
+{
+    background-color: grey;
+}
+
+#botaoop2
+{
+    margin-top: 110px;
+    margin-right: 400px;
+   float: right;
+}
+
+#botaoop1
+{
+    margin-top: 180px;
+    margin-left: 400px;
+   float: left;
+}
+
+h1
+{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
